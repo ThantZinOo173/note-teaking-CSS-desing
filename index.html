@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>do list</title>
+    <link rel="stylesheet" href="feather icons/feather.css" type="text/css">
+    <link rel="stylesheet" href="toDoList.css" type="text/css">
+</head>
+<body>
+    
+    
+    <div class="toDo">
+        <h1 id="listTitle"> To do list </h1>
+        <div class="add-box" id="addBox">
+            <input type="text" id="input" placeholder="Enter here what what you want...">
+            <button id="addBtn" class="btn btn-add" onclick="addList()"> <i class="icons feather-plus"></i> </button>
+        </div>
+        <div class="parentOfList">
+            <ul class="list" id="list">
+                
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let i = 1;
+        let minTextLength = 3;
+        let input = document.getElementById("input");
+        let list = document.getElementById("list");
+        function textFilter(x) {
+            if (x){
+                if(x.length >= minTextLength) {
+                    return x;
+                }
+                else { 
+                    window.alert("Enter 3 letters at least");
+                    return false;
+                }
+            }
+            else{
+                window.alert("You don't enter any letter");
+                return false;
+            }
+        }
+        function showList(text) {
+            list.innerHTML += `<li class="list-item" id="list${i}"> 
+                                    <button class="btn delete-btn" onclick="deleteList(${i})"><i class="icons feather-delete"></i></button>
+                                    <button class="btn edit-btn" onclick="editList(${i})"><i class="icons feather-edit"></i></button>
+                                    <span id="listText${i}"> ${text} </span>
+                                </li>
+            `;
+            i++;
+        }
+        function deleteList(listId) {
+            let currentText = document.getElementById(`listText${listId}`).innerHTML;
+            let deleteConfirm = confirm(`Are you sure to delete '${currentText}'`);
+            if(deleteConfirm){
+                let current = document.getElementById(`list${listId}`);
+                list.removeChild(current);
+                console.log(`Deleted "${currentText}"`);
+            }
+            else {
+                console.log(`Cancled to delete "${currentText}"`);
+            }
+
+        }
+        function editList(listId) {
+            let current = document.getElementById(`listText${listId}`);
+            let newText = prompt("Change to What you want",current.innerHTML);
+            if(textFilter(newText)){
+                current.innerHTML = newText;
+            }
+            else{
+                window.alert("You didn't change anything");
+            }
+        }
+        function addList() {
+            let inputText = textFilter(input.value);
+                
+            if(inputText) {
+                showList(inputText);
+                input.value = "";
+                console.log(` You added "${inputText}" to list`);
+            }
+        }
+    </script>
+</body>
+</html>
