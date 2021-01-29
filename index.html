@@ -6,6 +6,158 @@
     <title>do list</title>
     <link rel="stylesheet" href="feather icons/feather.css" type="text/css">
     <link rel="stylesheet" href="toDoList.css" type="text/css">
+    <style>
+        *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    border: black 3px solid;
+    background: rgba(212, 73, 9, 0.89);
+}
+.toDo{
+    border-radius: 3%;
+    border: black 1px groove;
+    width: 30%;
+    height: 80vh;
+    margin:5% 35%;
+    background: rgba(0, 0, 0, 0.534);
+}
+#listTitle{
+    width: 40%;
+    margin: 1%;
+    margin-left: 30%;
+    border: black solid 1px ;
+    border-radius: 3px;
+    text-align: center;
+    font-family:Lucida Calligraphy, Cooper, sans-serif;
+    font-weight: bold;
+    color: rgb(5, 1, 248);
+    background: rgb(253, 4, 191);
+}
+.add-box{
+    margin:1% auto ;
+    width: 95%;
+    height: 10%;
+    border: black solid 1px ;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(211, 106, 9, 0.685);
+}
+.add-box>#input{
+    border: none;
+    border-radius: 3px;
+    width: 70%;
+    height: 80%;
+    margin-right: 5%;
+    background: rgba(219, 53, 155, 0.623);
+}
+.add-box>input:focus{
+    outline: none;
+    border: none;
+    font-family:Monotype Corsiva,sans-serif ;
+    font-size: large;
+    color: rgb(34, 93, 170);
+}
+.add-box>input::placeholder{
+    text-align: center;
+    color: rgb(221, 203, 203);
+    font-family:Monotype Corsiva,sans-serif ;
+}
+.add-box>#input:hover{
+    background: rgba(36, 31, 31, 0.561);
+    font-weight: bold;
+}
+.add-box>#addBtn{
+    width: 12%;
+    height: 80%;
+    border: none;
+    border-radius: 50%;
+    font-family: Rockwell,Playbill;
+    background: rgba(1, 240, 1, 0.863);
+}
+.add-box>#addBtn:hover{
+    background: rgba(125, 207, 104, 0.63);
+}
+.add-box>#addBtn:focus{
+    border: none;
+    outline: none;
+}
+.parentOfList{
+    overflow-y: scroll;
+    margin:3% auto ;
+    width: 95%;
+    height: 70%;
+    border: black solid 1px ;
+    border-radius: 4px;
+    background: rgba(255, 179, 14, 0.459);
+}
+.parentOfList>.list{
+    padding: 0;
+    list-style: none;
+    width: 90%;
+    margin: 3% auto;
+    background: rgb(219, 109, 5);
+}
+.parentOfList>.list>.list-item{
+    background: rgba(107, 78, 209, 0.644);
+    height: 8%;
+    padding: 2%;
+    margin-bottom: 1%;
+    border-radius: 5px;
+    border: rgb(250, 249, 248) 1px dotted;
+}
+.list>.list-item>.btn{
+    width: 8%;
+    border-radius: 50%;
+    border: none;
+    padding: 1.5%;
+    text-align: center;
+    
+}
+.list>.list-item>.delete-btn{
+    background: rgba(253, 2, 2, 0.74);
+}
+.list>.list-item>.edit-btn{
+    background: rgba(12, 252, 4, 0.835);
+}
+.list>.list-item>span{
+    padding: 1.5%;
+    margin-left: 3%;
+    width: 78%;
+    display: inline-block;
+    text-align: center;
+    font-family: Perpetua;
+    background: rgba(243, 64, 10, 0.781);
+}
+@media screen and (max-width:480px){
+    .toDo{
+        border-radius: 3px;
+        width: 80%;
+        height: 80vh;
+        margin:5% 10%;
+    }
+    #listTitle{
+        width: 60%;
+        margin-left: 20%;
+    }
+    .add-box>#addBtn{
+        width: 17%;
+    }
+    .list>.list-item>.btn{
+        width: 10%;
+    }
+    .list>.list-item>span{
+        width: 73%;
+        background: rgb(235, 11, 179);
+    }
+}
+    </style>
 </head>
 <body>
     
